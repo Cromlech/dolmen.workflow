@@ -19,6 +19,7 @@ setup(name='dolmen.workflow',
       packages=find_packages('src'),
       include_package_data=True,
       zip_safe=False,
+      namespace_packages = ['dolmen'],
       extras_require = {'test': tests_require},
       install_requires=[
           'setuptools',
