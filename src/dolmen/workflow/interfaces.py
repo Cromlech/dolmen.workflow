@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from zope.interface import Interface, Attribute
 from zeam.form.base.interfaces import IComponent, ICollection
+from zope.component.interfaces import IObjectEvent
+from zope.schema import Object
 
 
 class IValidator(Interface):
@@ -58,17 +61,17 @@ class IWorkflowState(IComponent):
 class IStatesManager(Interface):
     """Stateful treatment processor.
     """
-    current_states = List(
+    current_states = Object(
         title=u"Current states",
         required=True,
-        value_type=Object(schema=IWorkflowState),
-        default=None,
-        )
+        schema=ICollection)
 
     available_states = Object(
         title=u"Reachable states",
         description=u"Other states that can be reached from this state.",
-        schema=ICollection)
+        schema=ICollection,
+        required=False,
+        default=None)
 
     def set_state(state_id):
         """Sets the current state. Returns a list of errors or None.

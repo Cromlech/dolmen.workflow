@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 
+import doctest
 import unittest
 import pkg_resources
 from dolmen.workflow import tests
-from zope.testing import doctest
 
 
 def make_test(dottedname):
     test = doctest.DocTestSuite(
-        dottedname, setUp=tests.siteSetUp, tearDown=tests.siteTearDown,
+        dottedname,
         optionflags=doctest.ELLIPSIS + doctest.NORMALIZE_WHITESPACE)
-    test.layer = tests.TestLayer(tests)
     return test
 
 

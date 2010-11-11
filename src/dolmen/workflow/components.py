@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from persistent import Persistent
 from dolmen.workflow import IWorkflowState, IValidator
 from zeam.form.base.components import Component, Collection
-from zope.schema._bootstrapinterfaces import ValidationError
+from zope.interface import implements
+
+
+class ValidationError(Exception):
+    pass
 
 
 class States(Collection):
@@ -33,7 +36,7 @@ def check_validators(item, validators, raiseErrors=False):
     return errors
 
 
-class State(Component, Persistent):
+class State(Component):
     """A persistent implementation of a Workflow State.
     """
     implements(IWorkflowState)
@@ -41,8 +44,7 @@ class State(Component, Persistent):
     def __init__(self, title=None, identifier=None, description=None,
                  action=None, pre_validators=None, post_validators=None,
                  states=None):
-        Persistent.__init__(self)
-        Component.__init__(self, title, identifier)
+        super(State, self).__init__(title, identifier)
         self.description = description
         self.action = action
         self.states = states or States()

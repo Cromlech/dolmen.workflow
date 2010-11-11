@@ -25,7 +25,10 @@ Workflow state
 Validators and checkers
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-  >>> item = object()
+  >>> class MyStatefulObject(object):
+  ...     pass
+
+  >>> item = MyStatefulObject()
   >>> print anger.get_reachable_states(item)
   {}
 
@@ -43,7 +46,7 @@ Validators
 ~~~~~~~~~~
 
   >>> from zope.interface import Interface, classProvides
-  >>> from ditrimag.workflow import IValidator, Validators, Error
+  >>> from dolmen.workflow import IValidator, Validators, Error
 
   >>> class ICalmed(Interface):
   ...     pass
