@@ -61,10 +61,10 @@ class IWorkflowState(IComponent):
 class IStatesManager(Interface):
     """Stateful treatment processor.
     """
-    current_states = Object(
-        title=u"Current states",
+    current_state = Object(
+        title=u"Current state",
         required=True,
-        schema=ICollection)
+        schema=IWorkflowState)
 
     available_states = Object(
         title=u"Reachable states",
