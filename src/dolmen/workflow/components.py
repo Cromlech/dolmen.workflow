@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from dolmen.workflow import IWorkflowState, IValidator
-from zeam.form.base.components import Component, Collection
+from dolmen.workflow import IWorkflowState, IValidator, IError
+from dolmen.collection.components import Component, Collection
 from zope.interface import implements
 
+
+class Error(Component):
+    """A non-exception error component.
+    """
+    implements(IError)
+    
 
 class ValidationError(Exception):
     pass
@@ -29,6 +35,7 @@ def check_validators(item, validators, raiseErrors=False):
     for validator in validators:
         error = validator.validate(item)
         if error is not None:
+            assert IError.providedBy(error)
             if errors is None:
                 raise ValidationError(error.title)
             else:

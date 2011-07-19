@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 
-from zeam.form.base.errors import Error
 from dolmen.workflow.interfaces import (
-    IValidator, IWorkflowState, IStatesManager, IObjectStateChanged)
+    IError, IValidator, IWorkflowState, IStatesManager, IObjectStateChanged)
 
-from dolmen.workflow.components import States, State, Validators
+from dolmen.workflow.components import (
+    States, State, Validators, Error, ValidationError)

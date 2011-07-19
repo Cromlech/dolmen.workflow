@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from zope.interface import Interface, Attribute
-from zeam.form.base.interfaces import IComponent, ICollection
+from dolmen.collection.interfaces import IComponent, ICollection
 from zope.component.interfaces import IObjectEvent
+from zope.interface import Interface, Attribute
 from zope.schema import Object
+
+
+class IError(Interface):
+    """A workflow-related error.
+    """
 
 
 class IValidator(Interface):
