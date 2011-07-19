@@ -9,7 +9,7 @@ class Error(Component):
     """A non-exception error component.
     """
     implements(IError)
-    
+
 
 class ValidationError(Exception):
     pass

@@ -3,7 +3,6 @@
 import doctest
 import unittest
 import pkg_resources
-from dolmen.workflow import tests
 
 
 def make_test(dottedname):
