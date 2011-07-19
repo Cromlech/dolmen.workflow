@@ -4,7 +4,7 @@ from os.path import join
 from setuptools import setup, find_packages
 
 
-version = '0.4a1'
+version = '0.2a1'
 
 tests_require = [
     ]
