@@ -19,7 +19,7 @@ setup(
     author="Souheil Chelfouh",
     author_email="trollfot@gmail.com",
     url="http://gitweb.dolmen-project.org",
-    license="GPL",
+    license="ZPL",
     classifiers=[
         "Programming Language :: Python",
         ],
