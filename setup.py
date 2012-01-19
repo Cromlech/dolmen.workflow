@@ -4,7 +4,15 @@ from os.path import join
 from setuptools import setup, find_packages
 
 
-version = '0.2a1'
+version = '0.2'
+
+install_requires = [
+    'setuptools',
+    'dolmen.collection >= 0.3',
+    'zope.interface',
+    'zope.schema',
+    'zope.component',
+    ]
 
 tests_require = [
     ]
@@ -29,13 +37,5 @@ setup(
     zip_safe=False,
     namespace_packages=['dolmen'],
     extras_require={'test': tests_require},
-    install_requires=[
-        'setuptools',
-        'dolmen.collection >= 0.3',
-        'zope.interface',
-        'zope.schema',
-        'zope.component',
-        ],
-      entry_points="""
-      """,
+    install_requires=install_requires,
     )
