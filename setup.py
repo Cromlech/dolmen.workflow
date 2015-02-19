@@ -4,14 +4,14 @@ from os.path import join
 from setuptools import setup, find_packages
 
 
-version = '0.2'
+version = '0.2.1dev'
 
 install_requires = [
     'setuptools',
     'dolmen.collection >= 0.3',
     'zope.interface',
     'zope.schema',
-    'zope.component',
+    'zope.lifecycleevent >= 4.1.0',
     ]
 
 tests_require = [

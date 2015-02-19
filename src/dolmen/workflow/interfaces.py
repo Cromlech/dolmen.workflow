@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from dolmen.collection.interfaces import IComponent, ICollection
-from zope.component.interfaces import IObjectEvent
+from zope.lifecycleevent.interfaces import IObjectEvent
 from zope.interface import Interface, Attribute
 from zope.schema import Object
 
